@@ -17,4 +17,7 @@ Extras:
   - [KnexJS](http://knexjs.org/)
   - [IBGE Api](https://servicodados.ibge.gov.br/api/docs)
   
+  ## Web
+  ![440tep](https://github.com/vncscampos/ecoleta/blob/master/.github/440tep.gif)
+  
   Feito durante o bootcamp Next Level Week da Rocketseat.
