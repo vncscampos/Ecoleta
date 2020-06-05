@@ -31,8 +31,8 @@ interface Point {
 }
 
 interface Params {
-  uf: string,
-  city: string
+  selectedUf: string,
+  selectedCity: string
 }
 
 const Points = () => {
@@ -46,6 +46,8 @@ const Points = () => {
 
   const route = useRoute();
   const routeParams = route.params as Params;
+
+
 
   const navigation = useNavigation();
 
@@ -71,8 +73,6 @@ const Points = () => {
 
       const { latitude, longitude } = location.coords;
 
-      console.log(latitude, longitude);
-
       setInitialPosition([latitude, longitude]);
     }
 
@@ -83,8 +83,8 @@ const Points = () => {
     api
       .get("points", {
         params: {
-          city: routeParams.city,
-          uf: routeParams.uf,
+          city: routeParams.selectedCity,
+          uf: routeParams.selectedUf,
           items: selectedItems,
         },
       })
