@@ -28,7 +28,7 @@ const CreatePoint = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
-  const [selectedItems, setSelectedItems] = useState<[number, number]>([0, 0]);
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -56,7 +56,7 @@ const CreatePoint = () => {
 
       setInitialPosition([latitude, longitude]);
     });
-  }, []);
+  }, [initialPosition]);
 
   useEffect(() => {
     api.get("items").then((res) => {
@@ -208,7 +208,7 @@ const CreatePoint = () => {
             <span>Selecione o endereço do mapa</span>
           </legend>
 
-          <Map center={initialPosition} zoom={15} onClick={handleMapClick}>
+          <Map center={initialPosition} zoom={2} onClick={handleMapClick}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
